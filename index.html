@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oaxaca Brunch — Café de especialidad en Badalona</title>
+    <meta name="description" content="Brunch artesanal y café de especialidad en Badalona. Café de origen, repostería artesanal y platos de temporada en el centro de la ciudad.">
+    
+    <!-- SEO & Social -->
+    <meta property="og:title" content="Oaxaca Brunch — Café de especialidad en Badalona">
+    <meta property="og:description" content="Brunch artesanal y café de especialidad en Badalona. Café de origen, repostería artesanal y platos de temporada.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&h=630&fit=crop&auto=format">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Oaxaca Brunch",
+        "description": "Brunch artesanal y café de especialidad en Badalona",
+        "image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&h=630&fit=crop&auto=format",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Carrer de la Mercè, 15",
+            "addressLocality": "Badalona",
+            "postalCode": "08911",
+            "addressCountry": "ES"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 41.4500,
+            "longitude": 2.2467
+        },
+        "telephone": "+34 930 123 456",
+        "openingHours": [
+            "Mo 08:00-13:30", "Mo 15:30-18:00",
+            "Th-Fr 08:00-13:30", "Th-Fr 15:30-18:00",
+            "Sa-Su 08:30-18:00"
+        ],
+        "servesCuisine": "Brunch",
+        "priceRange": "€€"
+    }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo" aria-label="Oaxaca Brunch - Inicio">
+                    <svg class="logo-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Define the curved path for bottom text -->
+                        <defs>
+                            <path id="bottom-curve" d="M 20 85 Q 100 100 180 85" stroke="none" fill="none"/>
+                        </defs>
+                        <!-- Oval background -->
+                        <ellipse cx="100" cy="60" rx="95" ry="55" fill="#3C2E26"/>
+                        <!-- OAXACA text -->
+                        <text x="100" y="50" fill="#F4F0E8" font-family="Nunito, sans-serif" font-weight="700" font-size="28" text-anchor="middle" dominant-baseline="middle">OAXACA</text>
+                        <!-- Bottom tagline following curved path -->
+                        <text fill="#F4F0E8" font-family="Inter, sans-serif" font-weight="400" font-size="7" opacity="0.8">
+                            <textPath href="#bottom-curve" startOffset="50%" text-anchor="middle">©OAXACA.BRUNCH / BADALONA / 2025</textPath>
+                        </text>
+                    </svg>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="404.html">Menú</a>
+                    <a href="404.html">Historia</a>
+                    <a href="#gallery">Galería</a>
+                    <a href="#reviews">Reseñas</a>
+                    <a href="#visit">Visita</a>
+                    <a href="https://wa.me/34930123456?text=Hola,%20¿puedo%20reservar%20para...?" class="cta-secondary" target="_blank" rel="noopener">
+                        Reservar
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button class="mobile-menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main content -->
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Deliciosos Sabores, Entregados Frescos</h1>
+                    <p class="hero-subtitle">
+                        From farm to fork — taste the difference in every meal.<br>
+                        Order now and enjoy flavors crafted with love.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#menu" class="btn-hero">Reservar Ahora</a>
+                    </div>
+                </div>
+                
+                <!-- Video Player -->
+                <div class="hero-video-container">
+                    <div class="video-player">
+                        <video poster="assets/images/menu/granola_casolana.webp" preload="metadata">
+                            <source src="#" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <div class="play-button-container">
+                            <div class="spinning-text">
+                                <svg class="spinning-circle" viewBox="0 0 200 200">
+                                    <defs>
+                                        <path id="circle-path" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="none"/>
+                                    </defs>
+                                    <text class="spinning-text-content">
+                                        <textPath href="#circle-path" startOffset="0%">
+                                            REPRODUCIR • VER VIDEO • REPRODUCIR • VER VIDEO • 
+                                        </textPath>
+                                    </text>
+                                </svg>
+                            </div>
+                            <button class="play-button" aria-label="Reproducir video">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tilted Moving Banner -->
+            <div class="hero-banner">
+                <div class="banner-content">
+                    <span class="banner-item">✨ Sabores Frescos</span>
+                    <span class="banner-item">🍽️ Bocados Sabrosos</span>
+                    <span class="banner-item">🌱 Comida Premium</span>
+                    <span class="banner-item">👨‍🍳 Especial del Chef</span>
+                    <span class="banner-item">🏺 Tradición Oaxaqueña</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Menu Teaser -->
+        <section class="menu-teaser" id="menu">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Nuestros favoritos</h2>
+                    <p>Una selección de nuestros platos más queridos</p>
+                </header>
+                
+                <div class="menu-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="vegetarian">
+                        <span class="icon">🌱</span>
+                        Vegetariano
+                    </button>
+                    <button class="filter-btn" data-filter="gluten-free">
+                        <span class="icon">🌾</span>
+                        Sin gluten
+                    </button>
+                </div>
+                
+                <div class="menu-grid stagger-animation">
+                    <article class="menu-item" data-tags="vegetarian">
+                        <img src="assets/images/menu/torrada_de_guacamole.webp" 
+                             alt="Torrada de guacamole, burrata y pesto" 
+                             width="200" height="200" loading="lazy">
+                        <h3>Torrada de <br>guacamole</h3>
+                        <p>Con burrata y pesto</p>
+                        <span class="price">15€</span>
+                    </article>
+                    
+                    <article class="menu-item" data-tags="vegetarian">
+                        <img src="assets/images/menu/Crema_de_cacauet.webp" 
+                             alt="Tostada con crema de cacahuete, plátano y arándanos" 
+                             width="200" height="200" loading="lazy">
+                        <h3>Crema de cacahuete</h3>
+                        <p>Plátano y arándanos sobre pan de masa madre</p>
+                        <span class="price">10€</span>
+                    </article>
+
+                    <article class="menu-item" data-tags="vegetarian">
+                        <img src="assets/images/menu/tostada_hummus.webp" 
+                             alt="Tostada de hummus, tomate seco y rúcula" 
+                             width="200" height="200" loading="lazy">
+                        <h3>Tostada de hummus</h3>
+                        <p>Tomate seco y rúcula</p>
+                        <span class="price">13€</span>
+                    </article>
+                    
+                    <article class="menu-item" data-tags="">
+                        <img src="assets/images/menu/Croissant_de_salmo.webp" 
+                             alt="Croissant de salmón, aguacate y queso crema" 
+                             width="200" height="200" loading="lazy">
+                        <h3>Croissant de salmón</h3>
+                        <p>Con aguacate y queso crema</p>
+                        <span class="price">14€</span>
+                    </article>
+                    
+                    <article class="menu-item" data-tags="gluten-free">
+                        <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=400&h=400&fit=crop&auto=format" 
+                             alt="Bowl de quinoa con vegetales frescos" 
+                             width="200" height="200" loading="lazy">
+                        <h3>Bowl de <br>
+                            quinoa</h3>
+                        <p>Con vegetales de temporada</p>
+                        <span class="price">13€</span>
+                    </article>
+                    
+                    <article class="menu-item" data-tags="vegetarian gluten-free">
+                        <img src="assets/images/menu/granola_casolana.webp" 
+                             alt="Granola casolana con yogur, plátano, arándanos, coco y miel" 
+                             width="200" height="200" loading="lazy">
+                        <h3>Granola Casolana</h3>
+                        <p>Yogur natural, plátano, arándanos, coco rallado y miel</p>
+                        <span class="price">12€</span>
+                    </article>
+
+                    <article class="menu-item" data-tags="">
+                        <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400&h=400&fit=crop&auto=format" 
+                             alt="Huevos Benedict con jamón ibérico" 
+                             width="200" height="200" loading="lazy">
+                        <h3>Huevos Benedict</h3>
+                        <p>Con jamón ibérico y salsa holandesa</p>
+                        <span class="price">16€</span>
+                    </article>
+                    
+                    <article class="menu-item" data-tags="vegetarian gluten-free">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=400&fit=crop&auto=format" 
+                             alt="Smoothie bowl con frutas tropicales" 
+                             width="200" height="200" loading="lazy">
+                        <h3>Smoothie <br>
+                            bowl</h3>
+                        <p>Con frutas tropicales y granola</p>
+                        <span class="price">11€</span>
+                    </article>
+                </div>
+                
+                <div class="menu-ctas">
+                    <a href="404.html" class="btn btn-primary">Ver carta completa</a>
+                    <a href="https://wa.me/34930123456?text=Hola,%20me%20gustaría%20hacer%20un%20pedido" class="btn btn-secondary" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Story Block -->
+        <section class="story">
+            <div class="container">
+                <div class="story-content">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop&auto=format" 
+                             alt="Barista preparando café de especialidad en Oaxaca Brunch" 
+                             width="400" height="300" loading="lazy" class="enhanced-hover">
+                    </div>
+                    <div class="story-text">
+                        <h2>Nuestra historia</h2>
+                        <p>Café de origen, repostería artesanal y platos de temporada en el centro de Badalona. Cada mañana seleccionamos los mejores ingredientes para crear experiencias únicas que conecten a nuestra comunidad.</p>
+                        <a href="404.html" class="link">Conoce más sobre nosotros</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery -->
+        <section class="gallery" id="gallery">
+            <div class="gallery-container">
+                <div class="gallery-header">
+                    <h2>Sabor, Color y Tradición — Los Placeres de Oaxaca Brunch</h2>
+                </div>
+                
+                <div class="carousel-container" id="gallery-carousel">
+                    <div class="carousel-track" id="carousel-track">
+                        <div class="carousel-item" data-title="Café de Especialidad" data-description="Latte art perfecto con granos de origen único">
+                            <div class="carousel-item-header">
+                                
+                            </div>
+                            <img src="assets/images/gallery/Iced_latte.jpg" 
+                                 alt="Café iced latte art con diseño de hoja sobre mesa de madera" 
+                                 width="400" height="400" loading="lazy">
+                            <div class="carousel-item-content">
+                                <div class="carousel-item-title">Café de Especialidad</div>
+                                <p class="carousel-item-description">Latte art perfecto con granos de origen único</p>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item" data-title="Brunch Artesanal" data-description="Mesa completa con flores frescas y luz natural">
+                            <div class="carousel-item-header">
+                                
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Mesa de brunch completo con flores frescas y luz natural" 
+                                 width="400" height="400" loading="lazy">
+                            <div class="carousel-item-content">
+                                <div class="carousel-item-title">Brunch Artesanal</div>
+                                <p class="carousel-item-description">Mesa completa con flores frescas y luz natural</p>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item" data-title="Ambiente Acogedor" data-description="Interior con plantas y decoración vintage">
+                            <div class="carousel-item-header">
+                                
+                            </div>
+                            <img src="assets/images/gallery/Ambiente_Acogedor.jpg" 
+                                 alt="Interior acogedor de cafetería con plantas y decoración vintage" 
+                                 width="400" height="400" loading="lazy">
+                            <div class="carousel-item-content">
+                                <div class="carousel-item-title">Ambiente Acogedor</div>
+                                <p class="carousel-item-description">Interior con plantas y decoración vintage</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-title="Eperiencia Social" data-description="Amigos disfrutando del brunch">
+                            <div class="carousel-item-header">
+                                
+                            </div>
+                            <img src="assets/images/gallery/Eperiencia_Social.jpg" 
+                                 alt="Grupo de amigos disfrutando del brunch en ambiente relajado" 
+                                 width="400" height="400" loading="lazy">
+                            <div class="carousel-item-content">
+                                <div class="carousel-item-title">Experiencia Social</div>
+                                <p class="carousel-item-description">Amigos disfrutando del brunch</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-indicators-container">
+                        <div class="carousel-indicators" id="carousel-indicators">
+                            <!-- Indicators will be generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-footer">
+                    <p>— desde Nuestra Cocina</p>
+                    <p class="gallery-description">Cada plato que servimos cuenta una historia - de especias exóticas, cenas familiares, y centurias de tradición culinaria. En Oaxaca Café, cocinamos la forma en que fuimos enseñados; con paciencia y orgullo. No es solo comida - es un recuerdo en cada bocado.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Reviews -->
+        <section class="reviews" id="reviews">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Lo que dicen nuestros clientes</h2>
+                </header>
+                
+                <div class="reviews-grid">
+                    <article class="review-card">
+                        <div class="stars" aria-label="5 de 5 estrellas">
+                            <span>★★★★★</span>
+                        </div>
+                        <blockquote>
+                            "El mejor brunch de Badalona. Ingredientes frescos y un ambiente increíble."
+                        </blockquote>
+                        <cite>— María González</cite>
+                    </article>
+                    
+                    <article class="review-card">
+                        <div class="stars" aria-label="5 de 5 estrellas">
+                            <span>★★★★★</span>
+                        </div>
+                        <blockquote>
+                            "Café de especialidad excepcional. El equipo es súper amable y profesional."
+                        </blockquote>
+                        <cite>— Carlos Ruiz</cite>
+                    </article>
+                    
+                    <article class="review-card">
+                        <div class="stars" aria-label="5 de 5 estrellas">
+                            <span>★★★★★</span>
+                        </div>
+                        <blockquote>
+                            "Perfecto para trabajar o quedar con amigos. Siempre repito la tostada de aguacate."
+                        </blockquote>
+                        <cite>— Ana Martín</cite>
+                    </article>
+                </div>
+                
+                <div class="reviews-cta">
+                    <a href="https://g.page/r/CRqF8vN9J9QHEBA/review" target="_blank" rel="noopener" class="btn btn-secondary">Ver más en Google</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Hours & Map -->
+        <section class="visit" id="visit">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Ven a visitarnos</h2>
+                </header>
+                
+                <div class="visit-content">
+                    <div class="hours-card">
+                        <h3>Horarios</h3>
+                        <div class="hours-list">
+                            <div class="hours-item">
+                                <span class="day">Lunes</span>
+                                <span class="time">08:00 - 13:30 / 15:30 - 18:00</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Martes - Miércoles</span>
+                                <span class="time">Cerrado</span>
+                            </div>
+                            <div class="hours-item current-day">
+                                <span class="day">Jueves - Viernes</span>
+                                <span class="time">08:00 - 13:30 / 15:30 - 18:00</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Sábado - Domingo</span>
+                                <span class="time">08:30 - 18:00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-actions">
+                            <a href="https://goo.gl/maps/abc123" target="_blank" rel="noopener" class="btn btn-primary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                                Cómo llegar
+                            </a>
+                            <a href="tel:+34930123456" class="btn btn-secondary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                                Llamar
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.1234567890!2d2.2467!3d41.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDI3JzAwLjAiTiAywrAxNCc0OC4xIkU!5e0!3m2!1ses!2ses!4v1234567890"
+                                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Ubicación de Oaxaca Brunch en Badalona">
+                        </iframe>
+                        <div class="address">
+                            <h4>Dirección</h4>
+                            <p>Carrer de la Mercè, 15<br>08911 Badalona, Barcelona</p>
+                            <p class="transport-tip">🚇 Metro L2 Badalona Pompeu Fabra (5 min andando)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <address>
+                        Carrer de la Mercè, 15<br>
+                        08911 Badalona, Barcelona<br>
+                        <a href="tel:+34930123456">+34 930 123 456</a>
+                    </address>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Horarios</h3>
+                    <p>Lunes: 08:00 - 13:30 / 15:30 - 18:00</p>
+                    <p>Martes - Miércoles: Cerrado</p>
+                    <p>Jueves - Viernes: 08:00 - 13:30 / 15:30 - 18:00</p>
+                    <p>Sábado - Domingo: 08:30 - 18:00</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="https://instagram.com/oaxacabrunch" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://facebook.com/oaxacabrunch" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/34930123456" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Idioma</h3>
+                    <div class="language-toggle">
+                        <button class="lang-btn active" data-lang="es">Español</button>
+                        <button class="lang-btn" data-lang="ca">Català</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Oaxaca Brunch. Todos los derechos reservados.</p>
+                <nav class="legal-links">
+                    <a href="legal.html">Política de privacidad</a>
+                    <a href="legal.html#cookies">Cookies</a>
+                    <a href="legal.html#impressum">Aviso legal</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" style="display: none;">
+        <div class="lightbox-backdrop" aria-hidden="true"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Cerrar galería">&times;</button>
+            <img src="" alt="" id="lightbox-img">
+            <div class="lightbox-nav">
+                <button class="lightbox-prev" aria-label="Imagen anterior">&#8249;</button>
+                <button class="lightbox-next" aria-label="Imagen siguiente">&#8250;</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- GSAP Libraries for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom animation component -->
+    <script src="AnimatedContent.js"></script>
+    
+    <!-- Main application script -->
+    <script src="script.js"></script>
+</body>
+</html>
