@@ -1,0 +1,54 @@
+/* Curved Loop Component Styles - Adapted for Oaxaca Banner */
+
+.curved-loop-jacket {
+  width: 100%;
+  height: 70px; /* Match our banner height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.curved-loop-svg {
+  user-select: none;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: block;
+  font-size: 1.125rem; /* Match our banner font size */
+  fill: var(--white);
+  font-weight: 600;
+  font-family: var(--font-heading);
+  line-height: 1;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Custom styling for our banner text */
+.oaxaca-banner-text {
+  fill: var(--white) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .curved-loop-jacket {
+    height: 60px;
+  }
+  
+  .curved-loop-svg {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .curved-loop-jacket {
+    height: 50px;
+  }
+  
+  .curved-loop-svg {
+    font-size: 0.9rem;
+  }
+}
