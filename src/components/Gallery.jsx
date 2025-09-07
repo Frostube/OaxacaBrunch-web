@@ -9,33 +9,33 @@ const Gallery = () => {
   const SPRING_OPTIONS = { type: 'spring', stiffness: 300, damping: 30 }
   const CONTAINER_PADDING = 16
 
-  // Gallery items data
+  // Gallery items data - Oaxaca Brunch authentic content
   const galleryItems = [
     {
       id: 1,
       title: "Café de Especialidad",
-      description: "Latte art perfecto con granos de origen único",
+      description: "Latte art perfecto con granos de origen único de Oaxaca",
       image: "assets/images/gallery/Iced_latte.jpg",
       alt: "Café iced latte art con diseño de hoja sobre mesa de madera"
     },
     {
       id: 2,
       title: "Brunch Artesanal",
-      description: "Mesa completa con flores frescas y luz natural",
-      image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description: "Mesa completa con ingredientes frescos y presentación cuidada",
+      image: "assets/images/gallery/brunch_table.jpg",
       alt: "Mesa de brunch completo con flores frescas y luz natural"
     },
     {
       id: 3,
       title: "Ambiente Acogedor",
-      description: "Interior con plantas y decoración vintage",
+      description: "Interior cálido con plantas naturales y decoración auténtica",
       image: "assets/images/gallery/Ambiente_Acogedor.jpg",
       alt: "Interior acogedor de cafetería con plantas y decoración vintage"
     },
     {
       id: 4,
       title: "Experiencia Social",
-      description: "Amigos disfrutando del brunch",
+      description: "Momentos únicos compartidos en un ambiente familiar",
       image: "assets/images/gallery/Eperiencia_Social.jpg",
       alt: "Grupo de amigos disfrutando del brunch en ambiente relajado"
     }
@@ -82,11 +82,11 @@ const Gallery = () => {
   const getTranslateX = (index = currentIndex) => {
     let translateX = -(index * trackItemOffset)
     
-    // On mobile, add centering offset
+    // On mobile, add centering offset for proper alignment
     if (window.innerWidth < 768 && carouselContainerRef.current) {
       const containerWidth = carouselContainerRef.current.offsetWidth - (CONTAINER_PADDING * 2)
       const centerOffset = (containerWidth - itemWidth) / 2
-      translateX += centerOffset
+      translateX += Math.max(0, centerOffset)
     }
     
     return translateX
@@ -239,22 +239,23 @@ const Gallery = () => {
               transition={SPRING_OPTIONS}
             >
               {galleryItems.map((item, index) => {
-                // Enhanced 3D transforms using motion values (best practice from reference)
+                // Simplified transforms for better Safari performance
                 const range = [
                   getTranslateX(index + 1), 
                   getTranslateX(index), 
                   getTranslateX(index - 1)
                 ]
-                const rotateYRange = [15, 0, -15]
-                const scaleRange = [0.8, 1, 0.8]
-                const opacityRange = [0.3, 1, 0.3]
+                // Reduced 3D effects for Safari compatibility
+                const rotateYRange = [8, 0, -8]
+                const scaleRange = [0.9, 1, 0.9]
+                const opacityRange = [0.6, 1, 0.6]
                 
                 // eslint-disable-next-line react-hooks/rules-of-hooks
-                const rotateY = useTransform(x, range, rotateYRange, { clamp: false })
+                const rotateY = useTransform(x, range, rotateYRange, { clamp: true })
                 // eslint-disable-next-line react-hooks/rules-of-hooks
-                const scale = useTransform(x, range, scaleRange, { clamp: false })
+                const scale = useTransform(x, range, scaleRange, { clamp: true })
                 // eslint-disable-next-line react-hooks/rules-of-hooks
-                const opacity = useTransform(x, range, opacityRange, { clamp: false })
+                const opacity = useTransform(x, range, opacityRange, { clamp: true })
 
                 return (
                   <motion.div

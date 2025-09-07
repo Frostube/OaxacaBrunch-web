@@ -598,10 +598,10 @@ p:last-child {
 
 .spinning-text-content {
     fill: white;
-    font-size: 12px;
+    font-size: clamp(14px, 2.5vw, 18px);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     font-family: var(--font-display);
 }
 
