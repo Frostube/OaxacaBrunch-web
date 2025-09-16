@@ -65,7 +65,7 @@
 /* ===== RESET & BASE ===== */
 *, *::before, *::after {
     box-sizing: border-box;
-    margin: 0;
+    /* margin: 0; */
     padding: 0;
 }
 
@@ -643,8 +643,8 @@ p:last-child {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
+    width: clamp(90px, 15vw, 120px);
+    height: clamp(90px, 15vw, 120px);
 }
 
 .spinning-text {
@@ -663,10 +663,10 @@ p:last-child {
 
 .spinning-text-content {
     fill: white;
-    font-size: clamp(14px, 2.5vw, 18px);
+    font-size: clamp(12px, 2.5vw, 16px);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: clamp(1px, 0.3vw, 2px);
     font-family: var(--font-display);
 }
 
@@ -675,8 +675,8 @@ p:last-child {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70px;
-    height: 70px;
+    width: clamp(50px, 8vw, 70px);
+    height: clamp(50px, 8vw, 70px);
     background: white;
     border: none;
     border-radius: 50%;
@@ -697,6 +697,8 @@ p:last-child {
 
 .play-button svg {
     transform: translateX(2px);
+    width: clamp(18px, 3vw, 24px);
+    height: clamp(18px, 3vw, 24px);
 }
 
 @keyframes spin {
@@ -773,20 +775,9 @@ p:last-child {
         max-width: 990px;
     }
     
-    .play-button-container {
-        width: 100px;
-        height: 100px;
-    }
+    /* Play button now uses responsive clamp() values */
     
-    .play-button {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .spinning-text-content {
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
+    /* Spinning text now uses responsive clamp() values */
     
     .hero-banner {
         height: 60px;
@@ -831,7 +822,7 @@ p:last-child {
     }
     
     .btn-hero {
-        padding: var(--space-3) var(--space-6);
+        /* padding: var(--space-3) var(--space-6); -- DISABLED */
         font-size: 1rem;
         min-width: 180px;
         border-radius: 30px;
@@ -853,20 +844,9 @@ p:last-child {
         aspect-ratio: 16/9;
     }
     
-    .play-button-container {
-        width: 70px;
-        height: 70px;
-    }
+    /* Play button now uses responsive clamp() values */
     
-    .play-button {
-        width: 42px;
-        height: 42px;
-    }
-    
-    .spinning-text-content {
-        font-size: 7px;
-        letter-spacing: 1px;
-    }
+    /* Spinning text now uses responsive clamp() values */
     
     .banner-item {
         font-size: 0.875rem;
@@ -910,7 +890,7 @@ p:last-child {
     }
     
     .btn-hero {
-        padding: var(--space-3) var(--space-5);
+        /* padding: var(--space-3) var(--space-5); -- DISABLED */
         font-size: 0.95rem;
         min-width: 160px;
     }
@@ -926,20 +906,9 @@ p:last-child {
         border: 3px solid white;
     }
     
-    .play-button-container {
-        width: 60px;
-        height: 60px;
-    }
+    /* Play button now uses responsive clamp() values */
     
-    .play-button {
-        width: 36px;
-        height: 36px;
-    }
-    
-    .spinning-text-content {
-        font-size: 6px;
-        letter-spacing: 0.5px;
-    }
+    /* Spinning text now uses responsive clamp() values */
     
     .hero-banner {
         height: 40px;
@@ -1395,23 +1364,23 @@ section {
     
     .carousel-container {
         max-width: 100%;
-        margin: 0 auto;
+        margin: 0 var(--space-4);
         border-radius: 16px;
         padding: 12px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        overflow-x: hidden;
     }
     
     .carousel-track {
-        justify-content: center;
+        /* Remove justify-content: center - breaks carousel functionality */
+        align-items: flex-start;
     }
     
     .carousel-item {
-        width: calc(100vw - 80px) !important;
+        width: calc(100vw - 112px); /* Account for container margin + padding */
         max-width: 340px;
-        min-width: 300px;
+        min-width: 280px;
         min-height: 420px;
+        flex-shrink: 0;
     }
     
     .carousel-item img {

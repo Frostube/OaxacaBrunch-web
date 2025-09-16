@@ -9,6 +9,12 @@
             --line: #E8E0D6;
             --white: #FFFFFF;
             --black: #000000;
+            
+            /* iOS Safari specific variables */
+            --safe-area-inset-top: env(safe-area-inset-top, 0px);
+            --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-area-inset-left: env(safe-area-inset-left, 0px);
+            --safe-area-inset-right: env(safe-area-inset-right, 0px);
     
     /* Typography Scale */
     --font-heading: 'Nunito', system-ui, -apple-system, sans-serif;
@@ -64,7 +70,7 @@
 /* ===== RESET & BASE ===== */
 *, *::before, *::after {
     box-sizing: border-box;
-    margin: 0;
+    /* margin: 0; */
     padding: 0;
 }
 
@@ -92,6 +98,11 @@ body {
     background-color: var(--bg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* iOS Safari safe area support */
+    padding-left: var(--safe-area-inset-left);
+    padding-right: var(--safe-area-inset-right);
+    /* Prevent horizontal scrolling on iOS */
+    overflow-x: hidden;
 }
 
 img, picture, video, canvas, svg {
@@ -275,17 +286,26 @@ p:last-child {
     left: 0;
     right: 0;
     background-color: rgba(244, 240, 232, 0.95);
+    -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid transparent;
     z-index: 100;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-transform: translateY(0);
     transform: translateY(0);
+    /* iOS Safari safe area support */
+    padding-top: var(--safe-area-inset-top);
+    /* Fallback for browsers that don't support backdrop-filter */
+    @supports not (backdrop-filter: blur(15px)) and not (-webkit-backdrop-filter: blur(15px)) {
+        background-color: rgba(244, 240, 232, 0.98);
+    }
 }
 
 .navbar.scrolled {
     border-bottom-color: var(--line);
     box-shadow: 0 4px 20px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.04);
     background-color: rgba(244, 240, 232, 0.98);
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
 }
 
@@ -478,7 +498,8 @@ p:last-child {
 .hero {
     position: relative;
     background: var(--background);
-    min-height: 100vh; /* Increased from 90vh to truly dominate the viewport */
+    min-height: 100vh; /* Standard viewport height */
+    min-height: -webkit-fill-available; /* iOS Safari fix for dynamic viewport */
     display: flex;
     flex-direction: column;
     /* Removed justify-content: center to allow children to grow vertically */
@@ -598,7 +619,7 @@ p:last-child {
 
 .spinning-text-content {
     fill: white;
-    font-size: clamp(14px, 2.5vw, 18px);
+    font-size: clamp(16px, 3vw, 20px);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -711,8 +732,8 @@ p:last-child {
     }
     
     .spinning-text-content {
-        font-size: 10px;
-        letter-spacing: 2px;
+        font-size: 14px !important;
+        letter-spacing: 2px !important;
     }
     
     .hero-banner {
@@ -724,6 +745,7 @@ p:last-child {
 @media (max-width: 767px) {
     .hero {
         min-height: 90vh; /* Increased from 80vh to give more overall vertical space for video */
+        min-height: -webkit-fill-available; /* iOS Safari fix for mobile viewport */
     }
     
     .hero-container {
@@ -778,8 +800,8 @@ p:last-child {
     }
     
     .spinning-text-content {
-        font-size: 8px;
-        letter-spacing: 1.5px;
+        font-size: 16px !important;
+        letter-spacing: 1.5px !important;
     }
     
     .banner-item {
@@ -856,6 +878,8 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--space-6);
+    /* Fallback for older Safari */
+    grid-gap: var(--space-6);
     margin-bottom: var(--space-8);
 }
 
@@ -871,19 +895,25 @@ section {
 }
 
 .menu-item:hover {
+    -webkit-transform: translateY(-6px) scale(1.02);
     transform: translateY(-6px) scale(1.02);
     box-shadow: 0 12px 35px rgba(0,0,0,.12), 0 6px 15px rgba(0,0,0,.08);
+    -webkit-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .menu-item:hover img {
+    -webkit-transform: scale(1.05);
     transform: scale(1.05);
+    -webkit-transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .menu-item:hover .price {
     color: #B54B2C;
+    -webkit-transform: scale(1.05);
     transform: scale(1.05);
+    -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
@@ -1030,9 +1060,17 @@ section {
 .carousel-track {
     display: flex;
     gap: 16px;
+    -webkit-transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     cursor: grab;
     will-change: transform;
+    /* iOS Safari touch optimization */
+    -webkit-overflow-scrolling: touch;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .carousel-track:active {
@@ -1053,9 +1091,15 @@ section {
     cursor: grab;
     width: 368px;
     min-height: 480px;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    -webkit-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* iOS Safari hardware acceleration */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .carousel-item:active {
@@ -1067,10 +1111,12 @@ section {
     height: 240px;
     object-fit: cover;
     border-radius: 0;
+    -webkit-transition: transform 0.4s ease;
     transition: transform 0.4s ease;
 }
 
 .carousel-item:hover img {
+    -webkit-transform: scale(1.05);
     transform: scale(1.05);
 }
 
@@ -1988,6 +2034,8 @@ picture {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--space-6);
+    /* Fallback for older Safari */
+    grid-gap: var(--space-6);
 }
 
 .menu-item-card {

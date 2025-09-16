@@ -333,6 +333,12 @@ function initGallery() {
         carouselTrack.style.transition = 'none';
         carouselTrack.style.cursor = 'grabbing';
         
+        // iOS Safari touch optimization
+        if (e.type === 'touchstart') {
+            // Prevent default iOS scroll behavior during drag
+            e.preventDefault();
+        }
+        
         // pauseAutoplay(); // Disabled with autoplay
     }
     
@@ -381,7 +387,7 @@ function initGallery() {
     carouselTrack.addEventListener('touchstart', (e) => {
         startTime = Date.now();
         handleStart(e);
-    }, { passive: true });
+    }, { passive: false }); // Changed to false to allow preventDefault for iOS
     
     document.addEventListener('mousemove', handleMove);
     document.addEventListener('touchmove', handleMove, { passive: false });
@@ -639,12 +645,14 @@ function initAdvancedScrollEffects() {
         const updateScrollEffects = () => {
             const currentScrollY = window.scrollY;
             
-            // Navbar scroll behavior
+            // Navbar scroll behavior with iOS Safari support
             if (currentScrollY > 100 && currentScrollY > lastScrollY) {
                 // Scrolling down - hide navbar
+                navbar.style.webkitTransform = 'translateY(-100%)';
                 navbar.style.transform = 'translateY(-100%)';
             } else {
                 // Scrolling up - show navbar
+                navbar.style.webkitTransform = 'translateY(0)';
                 navbar.style.transform = 'translateY(0)';
             }
             
@@ -666,7 +674,11 @@ function initAdvancedScrollEffects() {
             }
         };
         
-        window.addEventListener('scroll', onScroll, { passive: true });
+        // iOS Safari scroll optimization
+        window.addEventListener('scroll', onScroll, { 
+            passive: true,
+            capture: false
+        });
     }
 }
 
@@ -677,10 +689,35 @@ function initVideoPlayer() {
     const playButtonContainer = document.querySelector('.play-button-container');
     
     if (playButton && video) {
-        playButton.addEventListener('click', () => {
+        // iOS Safari specific video setup
+        video.setAttribute('playsinline', 'true'); // Prevent fullscreen on iOS
+        video.setAttribute('webkit-playsinline', 'true'); // Legacy iOS support
+        
+        playButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
             if (video.paused) {
-                video.play();
-                playButtonContainer.style.opacity = '0';
+                // iOS Safari requires user interaction for video play
+                const playPromise = video.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        playButtonContainer.style.opacity = '0';
+                    }).catch(error => {
+                        console.warn('Auto-play prevented:', error);
+                        // Fallback: show play button again
+                        playButtonContainer.style.opacity = '1';
+                    });
+                } else {
+                    // Older browsers
+                    try {
+                        video.play();
+                        playButtonContainer.style.opacity = '0';
+                    } catch (error) {
+                        console.warn('Video play failed:', error);
+                    }
+                }
             } else {
                 video.pause();
                 playButtonContainer.style.opacity = '1';
@@ -700,6 +737,17 @@ function initVideoPlayer() {
         // Show controls when paused
         video.addEventListener('pause', () => {
             playButtonContainer.style.opacity = '1';
+        });
+        
+        // iOS Safari specific event listeners
+        video.addEventListener('loadstart', () => {
+            // Ensure video is ready for iOS
+            video.load();
+        });
+        
+        // Handle iOS Safari video loading issues
+        video.addEventListener('canplaythrough', () => {
+            video.setAttribute('data-ready', 'true');
         });
     }
 }
