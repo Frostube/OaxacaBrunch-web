@@ -8,13 +8,13 @@ const path = require('path');
 // const sharp = require('sharp');
 
 const webpFiles = [
-  'assets/images/hero.webp',
-  'assets/images/logo.webp',
-  'assets/images/menu/Crema_de_cacauet.webp',
-  'assets/images/menu/Croissant_de_salmo.webp',
-  'assets/images/menu/granola_casolana.webp',
-  'assets/images/menu/Torrada_de_guacamole.webp',
-  'assets/images/menu/tostada_hummus.webp'
+  '/assets/images/hero.webp',
+  '/assets/images/logo.webp',
+  '/assets/images/menu/Crema_de_cacauet.webp',
+  '/assets/images/menu/Croissant_de_salmo.webp',
+  '/assets/images/menu/granola_casolana.webp',
+  '/assets/images/menu/Torrada_de_guacamole.webp',
+  '/assets/images/menu/tostada_hummus.webp'
 ];
 
 console.log('WebP files that need JPEG fallbacks:');
