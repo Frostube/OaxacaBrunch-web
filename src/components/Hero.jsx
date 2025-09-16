@@ -40,7 +40,13 @@ const Hero = () => {
               muted
               controls={false}
               data-ready="false"
-              onError={() => console.warn('Video failed to load')}
+              onError={(e) => {
+                console.warn('Video failed to load');
+                // Try JPG poster as fallback for iOS Safari
+                if (e.target.poster.includes('.webp')) {
+                  e.target.poster = '/assets/images/hero.jpg';
+                }
+              }}
               onLoadedData={() => {
                 const video = document.querySelector('.video-player video');
                 if (video) video.setAttribute('data-ready', 'true');
