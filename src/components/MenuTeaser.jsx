@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import SmartImage from './SmartImage'
 
 const MenuTeaser = () => {
   const [activeFilter, setActiveFilter] = useState('all')
@@ -117,11 +118,12 @@ const MenuTeaser = () => {
         <div className="menu-grid stagger-animation">
           {filteredItems.map((item) => (
             <article key={item.id} className="menu-item">
-              <img 
+              <SmartImage 
                 src={item.image} 
+                fallbackSrc={item.image.replace('.webp', '.jpg')}
                 alt={item.name}
-                width="200" 
-                height="200" 
+                width="200"
+                height="200"
                 loading="lazy"
               />
               <h3>{item.name}</h3>

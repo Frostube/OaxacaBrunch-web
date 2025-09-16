@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import SmartImage from './SmartImage'
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 
 const Gallery = () => {
@@ -15,28 +16,28 @@ const Gallery = () => {
       id: 1,
       title: "Café de Especialidad",
       description: "Latte art perfecto con granos de origen único de Oaxaca",
-      image: "assets/images/gallery/Iced_latte.jpg",
+      image: "/assets/images/gallery/Iced_latte.jpg",
       alt: "Café iced latte art con diseño de hoja sobre mesa de madera"
     },
     {
       id: 2,
       title: "Brunch Artesanal",
       description: "Mesa completa con ingredientes frescos y presentación cuidada",
-      image: "assets/images/gallery/brunch_table.jpg",
+      image: "/assets/images/gallery/brunch_table.jpg",
       alt: "Mesa de brunch completo con flores frescas y luz natural"
     },
     {
       id: 3,
       title: "Ambiente Acogedor",
       description: "Interior cálido con plantas naturales y decoración auténtica",
-      image: "assets/images/gallery/Ambiente_Acogedor.jpg",
+      image: "/assets/images/gallery/Ambiente_Acogedor.jpg",
       alt: "Interior acogedor de cafetería con plantas y decoración vintage"
     },
     {
       id: 4,
       title: "Experiencia Social",
       description: "Momentos únicos compartidos en un ambiente familiar",
-      image: "assets/images/gallery/Eperiencia_Social.jpg",
+      image: "/assets/images/gallery/Eperiencia_Social.jpg",
       alt: "Grupo de amigos disfrutando del brunch en ambiente relajado"
     }
   ]
@@ -273,8 +274,9 @@ const Gallery = () => {
                     data-description={item.description}
                   >
                     <div className="carousel-item-header"></div>
-                    <img
+                    <SmartImage
                       src={item.image}
+                      fallbackSrc={item.image.replace('.webp', '.jpg')}
                       alt={item.alt}
                       width="400"
                       height="400"
@@ -354,7 +356,12 @@ const Gallery = () => {
             >
               &times;
             </button>
-            <img src={lightboxImageSrc} alt={lightboxImageAlt} id="lightbox-img" />
+            <SmartImage 
+              src={lightboxImageSrc} 
+              fallbackSrc={lightboxImageSrc.replace('.webp', '.jpg')}
+              alt={lightboxImageAlt} 
+              id="lightbox-img" 
+            />
             <div className="lightbox-nav">
               <button 
                 className="lightbox-prev" 

@@ -32,8 +32,24 @@ const Hero = () => {
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
         >
           <div className="video-player">
-            <video poster="assets/images/hero.webp" preload="metadata">
-              <source src="#" type="video/mp4" />
+            <video 
+              poster="/assets/images/hero.webp" 
+              preload="none"
+              playsInline
+              webkit-playsinline="true"
+              muted
+              controls={false}
+              data-ready="false"
+              onError={() => console.warn('Video failed to load')}
+              onLoadedData={() => {
+                const video = document.querySelector('.video-player video');
+                if (video) video.setAttribute('data-ready', 'true');
+              }}
+            >
+              {/* Add your video file here when available */}
+              <source src="assets/videos/hero-video.mp4" type="video/mp4" />
+              <source src="assets/videos/hero-video.webm" type="video/webm" />
+              {/* Fallback for when no video is available */}
               Tu navegador no soporta el elemento de video.
             </video>
             <div className="play-button-container">
