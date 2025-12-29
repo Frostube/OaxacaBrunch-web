@@ -819,9 +819,9 @@ p:last-child {
         min-height: 100vh;
         padding-top: 70px; /* Adjust for mobile navbar */
     }
-    
+
     .hero-container {
-        padding: var(--space-4) var(--space-3) var(--space-6);
+        padding: var(--space-4) var(--space-3) var(--space-4);
         gap: var(--space-3);
         max-width: 100%;
     }
@@ -843,7 +843,7 @@ p:last-child {
     .hero-subtitle {
         font-size: 1rem;
         line-height: 1.5;
-        margin-bottom: var(--space-6);
+        margin-bottom: var(--space-4);
     }
     
     .btn-hero {
@@ -859,12 +859,13 @@ p:last-child {
         max-width: 100%;
         padding: 0 var(--space-3);
         order: 2;
+        margin-bottom: var(--space-2);
     }
-    
+
     .video-player {
-        min-height: 250px;
-        max-height: 300px;
-        border-radius: 16px;
+        min-height: 300px;
+        max-height: 340px;
+        border-radius: 18px;
         border: 4px solid var(--white);
         aspect-ratio: 16/9;
     }
@@ -896,7 +897,7 @@ p:last-child {
     }
     
     .hero-container {
-        padding: var(--space-3) var(--space-2) var(--space-4);
+        padding: var(--space-3) var(--space-2) var(--space-3);
         gap: var(--space-2);
     }
     
@@ -923,11 +924,11 @@ p:last-child {
     .hero-video-container {
         padding: 0 var(--space-2);
     }
-    
+
     .video-player {
-        min-height: 200px;
-        max-height: 250px;
-        border-radius: 12px;
+        min-height: 260px;
+        max-height: 300px;
+        border-radius: 14px;
         border: 3px solid var(--white);
     }
     
