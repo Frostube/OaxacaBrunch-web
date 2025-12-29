@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Ups! Página no encontrada — Oaxaca Brunch</title>
+    <meta name="description" content="Esta página no existe, pero nuestro café sí. Vuelve a Oaxaca Brunch para disfrutar del mejor brunch de Badalona.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== DESIGN TOKENS (match main site) ===== */
+        :root {
+            --bg: #F5E9D7;
+            --text: #24130D;
+            --muted: #755644;
+            --accent: #3A2419;
+            --accent-2: #B86C3F;
+            --line: #EADAC0;
+            --white: #F7F1E0;
+            --black: #000000;
+            --cta-gradient: linear-gradient(135deg, #43281B 0%, #2F1B13 100%);
+            --cta-gradient-hover: linear-gradient(135deg, #4D2F20 0%, #352015 100%);
+
+            --font-heading: 'Nunito', system-ui, -apple-system, sans-serif;
+            --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --radius-button: 8px;
+            --shadow: 0 2px 12px rgba(0,0,0,.06);
+            --shadow-hover: 0 4px 20px rgba(0,0,0,.1);
+            --transition-fast: 150ms ease-out;
+            --transition-normal: 200ms ease-out;
+            --transition-slow: 300ms ease-out;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        main { width: 100%; padding: var(--space-12) var(--space-4); position: relative; }
+
+        /* Background accents */
+        .background-blob {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle at 30% 30%, rgba(58,36,25,0.12), transparent 60%);
+            filter: blur(12px);
+            z-index: 0;
+        }
+        .blob-1 { top: 5%; left: 8%; }
+        .blob-2 { bottom: 8%; right: 12%; }
+
+        /* Container */
+        .error-container {
+            text-align: center;
+            max-width: 600px;
+            padding: var(--space-12) var(--space-8);
+            margin: 0 auto;
+            background: rgba(247, 241, 224, 0.7);
+            border-radius: 24px;
+            box-shadow: var(--shadow-hover);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Logo */
+        .logo-404 { display: flex; justify-content: center; margin-bottom: var(--space-8); }
+        .logo-svg-404 { width: 160px; height: auto; transition: all var(--transition-normal); }
+
+        /* 404 text */
+        .error-number {
+            font-family: var(--font-heading);
+            font-size: 6rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1;
+            margin-bottom: var(--space-4);
+        }
+
+        .error-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: var(--space-4);
+        }
+
+        .error-subtitle {
+            font-size: 1.25rem;
+            color: var(--muted);
+            margin-bottom: var(--space-8);
+        }
+
+        .error-description {
+            color: var(--muted);
+            margin-bottom: var(--space-12);
+        }
+
+        .error-actions {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4) var(--space-8);
+            border-radius: var(--radius-button);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            border: 2px solid transparent;
+            min-height: 44px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before { left: 100%; }
+
+        .btn-primary {
+            background-image: var(--cta-gradient);
+            background-color: var(--accent);
+            color: var(--bg);
+            transform: translateY(0);
+        }
+
+        .btn-primary:hover {
+            background-image: var(--cta-gradient-hover);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(58, 36, 25, 0.3), 0 3px 10px rgba(0,0,0,.08);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-2);
+            border-color: var(--accent-2);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-2);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .error-container { padding: var(--space-8) var(--space-4); }
+            .error-title { font-size: 2rem; }
+            .error-number { font-size: 4.5rem; }
+            .error-actions { flex-direction: column; }
+            .btn { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="background-blob blob-1"></div>
+        <div class="background-blob blob-2"></div>
+
+        <div class="error-container">
+            <div class="logo-404">
+                <svg class="logo-svg-404" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="100" cy="60" rx="95" ry="55" fill="#3C2E26"/>
+                    <text x="100" y="50" fill="#F4F0E8" font-family="Nunito, sans-serif" font-weight="700" font-size="28" text-anchor="middle" dominant-baseline="middle">OAXACA</text>
+                    <text fill="#F4F0E8" font-family="Inter, sans-serif" font-weight="400" font-size="7" opacity="0.8">
+                        <textPath href="#bottom-curve-404" startOffset="50%" text-anchor="middle">OAXACA.BRUNCH / BADALONA / 2025</textPath>
+                    </text>
+                    <defs>
+                        <path id="bottom-curve-404" d="M 20 85 Q 100 100 180 85" stroke="none" fill="none"/>
+                    </defs>
+                </svg>
+            </div>
+
+            <div class="error-number">404</div>
+            <h1 class="error-title">¡Ups! Esta página se perdió</h1>
+            <p class="error-subtitle">Pero nuestro café sigue aquí esperándote</p>
+            <p class="error-description">
+                Parece que la página que buscas no existe o se ha mudado a otra mesa.
+                ¿Qué tal si vuelves al inicio para descubrir nuestro brunch artesanal?
+            </p>
+
+            <div class="error-actions">
+                <a href="index.html" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    Volver al inicio
+                </a>
+                <a href="javascript:history.back()" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                    Página anterior
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

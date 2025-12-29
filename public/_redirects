@@ -1,5 +1,5 @@
 # Netlify redirects file for Oaxaca Brunch website
 # Handle client-side routing and custom 404 page
 
-# Redirect all non-existent routes to custom 404 page
+/menu.html /404.html 302
 /* /404.html 404
