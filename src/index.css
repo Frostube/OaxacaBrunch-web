@@ -1,14 +1,16 @@
 /* ===== DESIGN TOKENS ===== */
         :root {
-            /* Colors - Updated to match actual Oaxaca branding */
-            --bg: #F4F0E8;
-            --text: #3C2E26;
-            --muted: #6B5B4F;
-            --accent: #C45E3B;
-            --accent-2: #3C2E26;
-            --line: #E8E0D6;
-            --white: #FFFFFF;
+            /* Colors - Oaxaca warm cream palette (v1) */
+            --bg: #F5E9D7;
+            --text: #24130D;
+            --muted: #755644;
+            --accent: #3A2419;   /* primary dark chocolate */
+            --accent-2: #B86C3F; /* copper accent for hovers/details */
+            --line: #EADAC0;
+            --white: #F7F1E0; /* Soft off-white to avoid pure white */
             --black: #000000;
+            --cta-gradient: linear-gradient(135deg, #43281B 0%, #2F1B13 100%);
+            --cta-gradient-hover: linear-gradient(135deg, #4D2F20 0%, #352015 100%);
     
     /* Typography Scale */
     --font-heading: 'Nunito', system-ui, -apple-system, sans-serif;
@@ -286,14 +288,15 @@ p:last-child {
 }
 
 .btn-primary {
+    background-image: var(--cta-gradient);
     background-color: var(--accent);
-    color: var(--white);
+    color: var(--bg);
 }
 
 .btn-primary:hover {
-    background-color: #B54B2C;
+    background-image: var(--cta-gradient-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(196, 94, 59, 0.3), 0 3px 10px rgba(0,0,0,.1);
+    box-shadow: 0 8px 25px rgba(58, 36, 25, 0.3), 0 3px 10px rgba(0,0,0,.08);
     animation: glowPulse 2s infinite;
 }
 
@@ -328,7 +331,7 @@ p:last-child {
 }
 
 .link:hover {
-    color: #B54B2C;
+    color: var(--accent-2);
 }
 
 /* ===== NAVIGATION ===== */
@@ -337,7 +340,7 @@ p:last-child {
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(244, 240, 232, 0.95);
+    background-color: rgba(245, 233, 215, 0.95);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid transparent;
     z-index: 100;
@@ -595,7 +598,7 @@ p:last-child {
     display: inline-flex;
     align-items: center;
     background: var(--accent);
-    color: white;
+    color: var(--bg);
     padding: var(--space-4) var(--space-6);
     border-radius: 50px;
     text-decoration: none;
@@ -629,7 +632,7 @@ p:last-child {
     overflow: hidden;
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
     background: #000;
-    border: 8px solid white;
+    border: 8px solid var(--white);
 }
 
 .video-player video {
@@ -684,7 +687,7 @@ p:last-child {
 }
 
 .spinning-text-content {
-    fill: white;
+    fill: var(--white);
     font-size: clamp(12px, 2.5vw, 16px);
     font-weight: 700;
     text-transform: uppercase;
@@ -699,7 +702,7 @@ p:last-child {
     transform: translate(-50%, -50%);
     width: clamp(50px, 8vw, 70px);
     height: clamp(50px, 8vw, 70px);
-    background: white;
+    background: var(--white);
     border: none;
     border-radius: 50%;
     color: var(--text-primary);
@@ -862,7 +865,7 @@ p:last-child {
         min-height: 250px;
         max-height: 300px;
         border-radius: 16px;
-        border: 4px solid white;
+        border: 4px solid var(--white);
         aspect-ratio: 16/9;
     }
     
@@ -925,7 +928,7 @@ p:last-child {
         min-height: 200px;
         max-height: 250px;
         border-radius: 12px;
-        border: 3px solid white;
+        border: 3px solid var(--white);
     }
     
     /* Play button now uses responsive clamp() values */
@@ -1681,8 +1684,8 @@ section {
 .lang-btn {
     padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-button);
-    background-color: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(247, 241, 224, 0.1);
+    color: rgba(247, 241, 224, 0.9);
     font-size: var(--small-size);
     transition: all var(--transition-normal);
 }
@@ -2422,14 +2425,14 @@ picture {
     .cta-buttons {
         display: none;
     }
-    
+
     body {
-        background: white;
-        color: black;
+        background: var(--bg);
+        color: var(--text);
     }
-    
+
     .hero-content {
-        background: white;
+        background: var(--white);
         backdrop-filter: none;
     }
     
@@ -2714,4 +2717,3 @@ picture {
         margin-bottom: var(--space-8);
     }
 }
-

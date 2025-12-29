@@ -1,14 +1,16 @@
 /* ===== DESIGN TOKENS ===== */
         :root {
-            /* Colors - Updated to match actual Oaxaca branding */
-            --bg: #F4F0E8;
-            --text: #3C2E26;
-            --muted: #6B5B4F;
-            --accent: #C45E3B;
-            --accent-2: #3C2E26;
-            --line: #E8E0D6;
-            --white: #FFFFFF;
+            /* Colors - Oaxaca warm cream palette (match main app) */
+            --bg: #F5E9D7;
+            --text: #24130D;
+            --muted: #755644;
+            --accent: #3A2419;
+            --accent-2: #B86C3F;
+            --line: #EADAC0;
+            --white: #F7F1E0;
             --black: #000000;
+            --cta-gradient: linear-gradient(135deg, #43281B 0%, #2F1B13 100%);
+            --cta-gradient-hover: linear-gradient(135deg, #4D2F20 0%, #352015 100%);
             
             /* iOS Safari specific variables */
             --safe-area-inset-top: env(safe-area-inset-top, 0px);
@@ -234,14 +236,15 @@ p:last-child {
 }
 
 .btn-primary {
+    background-image: var(--cta-gradient);
     background-color: var(--accent);
-    color: var(--white);
+    color: var(--bg);
 }
 
 .btn-primary:hover {
-    background-color: #B54B2C;
+    background-image: var(--cta-gradient-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(196, 94, 59, 0.3), 0 3px 10px rgba(0,0,0,.1);
+    box-shadow: 0 8px 25px rgba(58, 36, 25, 0.3), 0 3px 10px rgba(0,0,0,.08);
     animation: glowPulse 2s infinite;
 }
 
@@ -276,7 +279,7 @@ p:last-child {
 }
 
 .link:hover {
-    color: #B54B2C;
+    color: var(--accent-2);
 }
 
 /* ===== NAVIGATION ===== */
@@ -285,7 +288,7 @@ p:last-child {
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(244, 240, 232, 0.95);
+    background-color: rgba(245, 233, 215, 0.95);
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid transparent;
@@ -297,14 +300,14 @@ p:last-child {
     padding-top: var(--safe-area-inset-top);
     /* Fallback for browsers that don't support backdrop-filter */
     @supports not (backdrop-filter: blur(15px)) and not (-webkit-backdrop-filter: blur(15px)) {
-        background-color: rgba(244, 240, 232, 0.98);
+        background-color: rgba(245, 233, 215, 0.98);
     }
 }
 
 .navbar.scrolled {
     border-bottom-color: var(--line);
     box-shadow: 0 4px 20px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.04);
-    background-color: rgba(244, 240, 232, 0.98);
+    background-color: rgba(245, 233, 215, 0.98);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
 }
@@ -1900,7 +1903,7 @@ picture {
 /* ===== MENU PAGE STYLES ===== */
 .page-header {
     background-color: var(--bg);
-    padding: var(--space-16) 0 var(--space-8);
+    padding: var(--space-12) 0 var(--space-6);
     margin-top: 80px; /* Account for fixed navbar */
 }
 
@@ -2523,4 +2526,3 @@ picture {
         margin-bottom: var(--space-8);
     }
 }
-

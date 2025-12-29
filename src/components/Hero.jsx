@@ -1,9 +1,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import SimpleBanner from './SimpleBanner'
+import { useLanguage, getCopy } from '../language.jsx'
 
 const Hero = () => {
-  const bannerText = '☕ Café de Especialidad • 🥐 Brunch Artesanal • 🌱 Ingredientes Frescos • 👨‍🍳 Recetas Familiares • 🏺 Tradición Oaxaqueña • ☕ Café de Especialidad • 🥐 Brunch Artesanal • 🌱 Ingredientes Frescos • 👨‍🍳 Recetas Familiares • 🏺 Tradición Oaxaqueña'
+  const { lang } = useLanguage()
+  const heroCopy = getCopy(lang).hero
+  const bannerText = heroCopy.banner
 
   return (
     <section className="hero">
@@ -14,13 +17,17 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h1 className="hero-title">Brunch artesanal y café de especialidad</h1>
+          <h1 className="hero-title">{heroCopy.title}</h1>
           <p className="hero-subtitle">
-            Recetas familiares transmitidas de generación en generación.<br />
-            Brunch mediterráneo en el corazón de Badalona.
+            {heroCopy.subtitle.map((line, idx) => (
+              <React.Fragment key={idx}>
+                {line}
+                {idx === 0 && <br />}
+              </React.Fragment>
+            ))}
           </p>
           <div className="hero-cta">
-            <a href="#menu" className="btn-hero">Explorar nuestra carta</a>
+            <a href="#menu" className="btn-hero">{heroCopy.cta}</a>
           </div>
         </motion.div>
 

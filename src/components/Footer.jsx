@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useLanguage, getCopy } from '../language.jsx'
 
 const Footer = () => {
-  const [activeLanguage, setActiveLanguage] = useState('es')
+  const { lang, setLang } = useLanguage()
+  const footerCopy = getCopy(lang).footer
 
-  const handleLanguageChange = (lang) => {
-    setActiveLanguage(lang)
-    localStorage.setItem('preferredLanguage', lang)
-    // In a real app, this would trigger content translation
-    console.log(`Language changed to: ${lang}`)
+  const handleLanguageChange = (selectedLang) => {
+    setLang(selectedLang)
   }
 
   return (
@@ -15,24 +14,23 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>Contacto</h3>
+            <h3>{footerCopy.contactTitle}</h3>
             <address>
-              Carrer de la Mercè, 15<br />
+              Carrer de Arnús, 31<br />
               08911 Badalona, Barcelona<br />
               <a href="tel:+34930123456">+34 930 123 456</a>
             </address>
           </div>
 
           <div className="footer-section">
-            <h3>Horarios</h3>
-            <p>Lunes: 08:00 - 13:30 / 15:30 - 18:00</p>
-            <p>Martes - Miércoles: Cerrado</p>
-            <p>Jueves - Viernes: 08:00 - 13:30 / 15:30 - 18:00</p>
-            <p>Sábado - Domingo: 08:30 - 18:00</p>
+            <h3>{footerCopy.hoursTitle}</h3>
+            {footerCopy.hoursLines.map((line, idx) => (
+              <p key={idx}>{line}</p>
+            ))}
           </div>
 
           <div className="footer-section">
-            <h3>Síguenos</h3>
+            <h3>{footerCopy.followTitle}</h3>
             <div className="social-links">
               <a href="https://instagram.com/oaxacabrunch" target="_blank" rel="noopener" aria-label="Instagram">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -53,32 +51,32 @@ const Footer = () => {
           </div>
 
           <div className="footer-section">
-            <h3>Idioma</h3>
+            <h3>{footerCopy.languageTitle}</h3>
             <div className="language-toggle">
               <button 
-                className={`lang-btn ${activeLanguage === 'es' ? 'active' : ''}`}
+                className={`lang-btn ${lang === 'es' ? 'active' : ''}`}
                 onClick={() => handleLanguageChange('es')}
                 data-lang="es"
               >
-                Español
+                {footerCopy.languages.es}
               </button>
               <button 
-                className={`lang-btn ${activeLanguage === 'ca' ? 'active' : ''}`}
+                className={`lang-btn ${lang === 'ca' ? 'active' : ''}`}
                 onClick={() => handleLanguageChange('ca')}
                 data-lang="ca"
               >
-                Català
+                {footerCopy.languages.ca}
               </button>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2024 Oaxaca Brunch. Todos los derechos reservados.</p>
+          <p>{footerCopy.rights}</p>
           <nav className="legal-links">
-            <a href="legal.html">Política de privacidad</a>
-            <a href="legal.html#cookies">Cookies</a>
-            <a href="legal.html#impressum">Aviso legal</a>
+            <a href="legal.html">{footerCopy.legal.privacy}</a>
+            <a href="legal.html#cookies">{footerCopy.legal.cookies}</a>
+            <a href="legal.html#impressum">{footerCopy.legal.legal}</a>
           </nav>
         </div>
       </div>
