@@ -11,33 +11,34 @@ const Gallery = () => {
   const CONTAINER_PADDING = 16
 
   // Gallery items data - Oaxaca Brunch authentic content
+  // Preload assets via imports so Vite bundles them correctly
   const galleryItems = [
     {
       id: 1,
       title: "Café de Especialidad",
       description: "Latte art perfecto con granos de origen único de Oaxaca",
-      image: "/assets/images/gallery/Iced_latte.jpg",
+      image: new URL('../../assets/images/gallery/Iced_latte.jpg', import.meta.url).href,
       alt: "Café iced latte art con diseño de hoja sobre mesa de madera"
     },
     {
       id: 2,
       title: "Brunch Artesanal",
       description: "Mesa completa con ingredientes frescos y presentación cuidada",
-      image: "/assets/images/gallery/brunch_table.jpg",
+      image: new URL('../../assets/images/gallery/brunch_table.jpg', import.meta.url).href,
       alt: "Mesa de brunch completo con flores frescas y luz natural"
     },
     {
       id: 3,
       title: "Ambiente Acogedor",
       description: "Interior cálido con plantas naturales y decoración auténtica",
-      image: "/assets/images/gallery/Ambiente_Acogedor.jpg",
+      image: new URL('../../assets/images/gallery/Ambiente_Acogedor.jpg', import.meta.url).href,
       alt: "Interior acogedor de cafetería con plantas y decoración vintage"
     },
     {
       id: 4,
       title: "Experiencia Social",
       description: "Momentos únicos compartidos en un ambiente familiar",
-      image: "/assets/images/gallery/Eperiencia_Social.jpg",
+      image: new URL('../../assets/images/gallery/Eperiencia_Social.jpg', import.meta.url).href,
       alt: "Grupo de amigos disfrutando del brunch en ambiente relajado"
     }
   ]
